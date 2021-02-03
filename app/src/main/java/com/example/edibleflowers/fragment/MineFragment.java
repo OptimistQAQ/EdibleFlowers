@@ -1,5 +1,6 @@
 package com.example.edibleflowers.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,15 +9,22 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.edibleflowers.R;
+import com.example.edibleflowers.activity.RegisterActivity;
 
 public class MineFragment extends Fragment implements View.OnClickListener {
 
     private View root;
-    private ImageButton mine_settings;
+    private ImageButton btnSettings;
+    private Button btnRegister;
+    private Button btnMyFavourite;
+    private Button btnAbout;
+    private Button btnAccountSettings;
+    private Button btnLogout;
 
     @Nullable
     @Override
@@ -33,18 +41,44 @@ public class MineFragment extends Fragment implements View.OnClickListener {
 
     private void initView()
     {
-        mine_settings = root.findViewById(R.id.mine_settings);
-        mine_settings.setOnClickListener(this);
+        btnSettings = root.findViewById(R.id.mine_settings);
+        btnSettings.setOnClickListener(this);
+        btnRegister = root.findViewById(R.id.mine_register);
+        btnRegister.setOnClickListener(this);
+        btnMyFavourite = root.findViewById(R.id.mine_my_favourite);
+        btnMyFavourite.setOnClickListener(this);
+        btnAbout = root.findViewById(R.id.mine_about);
+        btnAbout.setOnClickListener(this);
+        btnAccountSettings = root.findViewById(R.id.mine_account_settings);
+        btnAccountSettings.setOnClickListener(this);
+        btnLogout = root.findViewById(R.id.mine_logout);
+        btnLogout.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.mine_settings:
-                Toast.makeText(getActivity(), "Settigs", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Settings", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.mine_register:
+//                Toast.makeText(getActivity(), "Register", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getActivity(), RegisterActivity.class));
+                break;
+            case R.id.mine_my_favourite:
+                Toast.makeText(getActivity(), "MyFavourite", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.mine_about:
+                Toast.makeText(getActivity(), "About", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.mine_account_settings:
+                Toast.makeText(getActivity(), "AccountSettings", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.mine_logout:
+                Toast.makeText(getActivity(), "Logout", Toast.LENGTH_SHORT).show();
                 break;
             default:
-                Log.d("MineFrament", "OnClick Default");
+                Log.d("MineFragment", "OnClick Default");
                 break;
         }
     }

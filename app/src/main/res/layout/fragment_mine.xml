@@ -53,6 +53,7 @@
                 android:layout_weight="1">
 
                 <TextView
+                    android:id="@+id/user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="游客"
@@ -65,16 +66,19 @@
                     app:layout_constraintVertical_bias="0.3" />
 
                 <Button
+                    android:id="@+id/mine_register"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#12121224"
-                    android:text="账号设置"
+                    android:text="立即注册"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.3"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.7" />
+
+                <!-- 在这里添加更多内容 -->
 
             </android.support.constraint.ConstraintLayout>
 
@@ -85,6 +89,33 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <Button
+                android:id="@+id/mine_my_favourite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:text="我的收藏" />
+
+            <Button
+                android:id="@+id/mine_about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:text="关于" />
+
+            <Button
+                android:id="@+id/mine_account_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:text="账号设置" />
+
+            <Button
+                android:id="@+id/mine_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:text="退出登陆" />
 
         </LinearLayout>
 
