@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!-- 右上角应用设置 -->
         <LinearLayout
             android:id="@+id/ll_settings"
             android:layout_width="match_parent"
@@ -30,6 +31,7 @@
 
         </LinearLayout>
 
+        <!-- 用户信息 -->
         <LinearLayout
             android:id="@+id/ll_profile"
             android:layout_width="match_parent"
