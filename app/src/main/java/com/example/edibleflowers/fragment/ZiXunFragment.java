@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.example.edibleflowers.R;
 import com.example.edibleflowers.bean.BannerInfo;
 import com.stx.xhb.xbanner.XBanner;
+import com.stx.xhb.xbanner.transformers.Transformer;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -25,17 +26,17 @@ public class ZiXunFragment extends Fragment {
     private XBanner xBanner;
 
     // 测试用图片 url
-    final String baiduLogoImageUrl = "https://www.baidu.com/img/flexible/logo/pc/result@2.png";
-    final String bingDailyImageUrl = "https://cn.bing.com/th?id=OHR.VosgesBioReserve_ZH-CN4762694302_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp";
-    final String appleImageUrl = "https://www.apple.com.cn/home/heroes/cny-2021-film/images/cny__gaectlu0tiai_mediumtall.jpg";
+//    final String baiduLogoImageUrl = "https://www.baidu.com/img/flexible/logo/pc/result@2.png";
+//    final String bingDailyImageUrl = "https://cn.bing.com/th?id=OHR.VosgesBioReserve_ZH-CN4762694302_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp";
+//    final String appleImageUrl = "https://www.apple.com.cn/home/heroes/cny-2021-film/images/cny__gaectlu0tiai_mediumtall.jpg";
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_zixun, container, false);
         initView();
-        initBanner();
         initData();
+        initBanner();
         return root;
     }
 
@@ -65,15 +66,14 @@ public class ZiXunFragment extends Fragment {
         xBanner.loadImage(new XBanner.XBannerAdapter() {
             @Override
             public void loadBanner(XBanner banner, Object model, View view, int position) {
-                BannerInfo bannerImage = ((BannerInfo)model);
-                String url = bannerImage.getImgUrl();
+                BannerInfo bannerImage = ((BannerInfo) model);
+                String url = bannerImage.getXBannerUrl();
                 Glide.with(ZiXunFragment.this)
                         .load(url)
                         .into((ImageView) view);
             }
         });
-        List<BannerInfo> data = new ArrayList<>();
-        xBanner.setBannerData(data);
+        xBanner.setPageTransformer(Transformer.Alpha);
     }
 
     /**
@@ -86,15 +86,28 @@ public class ZiXunFragment extends Fragment {
 
         List<BannerInfo> demoData = new ArrayList<>();
 
-        BannerInfo baidu = new BannerInfo(baiduLogoImageUrl, "Baidu");
-        BannerInfo bing  = new BannerInfo(bingDailyImageUrl, "Bing");
-        BannerInfo apple = new BannerInfo(appleImageUrl, "Apple");
+        BannerInfo baidu = new BannerInfo("https://www.baidu.com/img/flexible/logo/pc/result@2.png", "Baidu");
+//        BannerInfo bing  = new BannerInfo("https://cn.bing.com/th?id=OHR.VosgesBioReserve_ZH-CN4762694302_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp, "Bing");
+        BannerInfo apple = new BannerInfo("https://www.apple.com.cn/home/heroes/cny-2021-film/images/cny__gaectlu0tiai_mediumtall.jpg", "Apple");
 
         demoData.add(baidu);
-        demoData.add(bing);
+//        demoData.add(bing);
         demoData.add(apple);
 
         xBanner.setBannerData(demoData);
         xBanner.setAutoPlayAble(demoData.size() > 1);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        xBanner.startAutoPlay();
+    }
+
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        xBanner.stopAutoPlay();
     }
 }

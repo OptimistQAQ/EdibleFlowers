@@ -32,12 +32,12 @@ public class BannerInfo implements BaseBannerInfo {
     }
 
     @Override
-    public Object getXBannerUrl() {
-        return this.imgUrl;
+    public String getXBannerUrl() {
+        return getImgUrl();
     }
 
     @Override
     public String getXBannerTitle() {
-        return this.title;
+        return getTitle();
     }
 }
