@@ -39,6 +39,9 @@ public class MineFragment extends Fragment implements View.OnClickListener {
         super.onCreate(savedInstanceState);
     }
 
+    /**
+     * 初始化控件
+     */
     private void initView()
     {
         btnSettings = root.findViewById(R.id.mine_settings);
@@ -55,6 +58,10 @@ public class MineFragment extends Fragment implements View.OnClickListener {
         btnLogout.setOnClickListener(this);
     }
 
+    /**
+     * 处理点击事件
+     * @param v 控件
+     */
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
