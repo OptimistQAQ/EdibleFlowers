@@ -20,10 +20,10 @@ public class MineFragment extends Fragment implements View.OnClickListener {
 
     private View root;
     private ImageButton btnSettings;
+    private ImageButton btnAccountSettings;
     private Button btnRegister;
     private Button btnMyFavourite;
     private Button btnAbout;
-    private Button btnAccountSettings;
     private Button btnLogout;
 
     @Nullable
