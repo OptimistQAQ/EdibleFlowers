@@ -32,3 +32,6 @@
 - 关于
 - 退出登陆
 
+## Open Source
+
+https://github.com/xiaohaibin/XBanner
