@@ -34,4 +34,4 @@
 
 ## Open Source
 
-https://github.com/xiaohaibin/XBanner
+https://github.com/xiaohaibin/XBanner (在使用本开源项目时出现了问题，切换到banner分支下)
