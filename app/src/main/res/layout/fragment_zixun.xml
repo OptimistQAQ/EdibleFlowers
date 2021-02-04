@@ -22,43 +22,22 @@
             android:layout_width="match_parent"
             android:layout_height="192dp"
             android:scaleType="centerCrop"
+            app:placeholderDrawable="@drawable/ic_default_image_grey_64dp"
             app:AutoPlayTime="3000"
+            app:pageChangeDuration="800"
             app:isAutoPlay="false"
             app:isHandLoop="true"
-            app:isShowIndicatorOnlyOne="true"
             app:isShowTips="false"
-            app:pageChangeDuration="800"
-            app:placeholderDrawable="@drawable/ic_default_image_grey_64dp"
-            app:pointsContainerBackground="#442e2e2e"
-            app:pointsPosition="CENTER"
+            app:tipTextSize="10sp"
+            app:tipTextColor="#ffffff"
+            app:isTipsMarquee="false"
             app:pointsVisibility="true"
-            app:tipTextSize="10sp" />
+            app:isShowNumberIndicator="true"
+            app:isShowIndicatorOnlyOne="false"
+            app:pointsContainerBackground="#442e2e2e"
+            app:pointsPosition="RIGHT" />
 
     </android.support.v7.widget.CardView>
-
-<!--    <com.stx.xhb.xbanner.XBanner-->
-<!--        android:id="@+id/zixun_banner"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="160dp"-->
-<!--        android:layout_marginVertical="24dp"-->
-<!--        android:layout_marginHorizontal="12dp"-->
-<!--        android:scaleType="center"-->
-<!--        app:AutoPlayTime="3000"-->
-<!--        app:pageChangeDuration="3000"-->
-<!--        app:isTipsMarquee="false"-->
-<!--        app:isAutoPlay="false"-->
-<!--        app:isShowTips="true"-->
-<!--        app:isHandLoop="true"-->
-<!--        app:pointsVisibility="false"-->
-<!--        app:tipTextColor="#ffffff"-->
-<!--        app:tipTextSize="12sp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        tools:ignore="MissingConstraints" />-->
-
-
-
 
     <ScrollView
         android:layout_width="match_parent"
