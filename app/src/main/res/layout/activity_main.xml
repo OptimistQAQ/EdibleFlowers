@@ -19,7 +19,7 @@
     <com.wakehao.bar.BottomNavigationBar
         android:id="@+id/bar"
         android:layout_width="match_parent"
-        android:layout_height="120px"
+        android:layout_height="120dp"
         android:layout_alignParentBottom="true"
         app:fragmentContainerId="@id/fragment_container"
         app:menu="@menu/bottom_menu"
