@@ -26,9 +26,9 @@ public class ZiXunFragment extends Fragment {
     private XBanner xBanner;
 
     // 测试用图片 url
-//    final String baiduLogoImageUrl = "https://www.baidu.com/img/flexible/logo/pc/result@2.png";
-//    final String bingDailyImageUrl = "https://cn.bing.com/th?id=OHR.VosgesBioReserve_ZH-CN4762694302_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp";
-//    final String appleImageUrl = "https://www.apple.com.cn/home/heroes/cny-2021-film/images/cny__gaectlu0tiai_mediumtall.jpg";
+    private final String baiduLogoImageUrl = "https://www.baidu.com/img/flexible/logo/pc/result@2.png";
+    private final String bingDailyImageUrl = "https://cn.bing.com/th?id=OHR.VosgesBioReserve_ZH-CN4762694302_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp";
+    private final String appleImageUrl = "https://www.apple.com.cn/home/heroes/cny-2021-film/images/cny__gaectlu0tiai_mediumtall.jpg";
 
     @Nullable
     @Override
@@ -46,7 +46,7 @@ public class ZiXunFragment extends Fragment {
     private void initView()
     {
         xBanner = root.findViewById(R.id.zixun_banner);
-
+//        精选 分类 新闻
     }
 
     /**
@@ -59,7 +59,10 @@ public class ZiXunFragment extends Fragment {
         xBanner.setOnItemClickListener(new XBanner.OnItemClickListener() {
             @Override
             public void onItemClick(XBanner banner, Object model, View view, int position) {
-                Toast.makeText(getActivity(), "点击了第" + (position + 1) + "图片", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),
+                        "点击了第" + (position + 1) + "图片  " + ((BannerInfo) model).getTitle(),
+                        Toast.LENGTH_SHORT)
+                        .show();
             }
         });
         // 加载图片
@@ -86,12 +89,12 @@ public class ZiXunFragment extends Fragment {
 
         List<BannerInfo> demoData = new ArrayList<>();
 
-        BannerInfo baidu = new BannerInfo("https://www.baidu.com/img/flexible/logo/pc/result@2.png", "Baidu");
-//        BannerInfo bing  = new BannerInfo("https://cn.bing.com/th?id=OHR.VosgesBioReserve_ZH-CN4762694302_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp, "Bing");
-        BannerInfo apple = new BannerInfo("https://www.apple.com.cn/home/heroes/cny-2021-film/images/cny__gaectlu0tiai_mediumtall.jpg", "Apple");
+        BannerInfo baidu = new BannerInfo(baiduLogoImageUrl, "Baidu");
+        BannerInfo bing  = new BannerInfo(bingDailyImageUrl, "Bing");
+        BannerInfo apple = new BannerInfo(appleImageUrl, "Apple");
 
         demoData.add(baidu);
-//        demoData.add(bing);
+        demoData.add(bing);
         demoData.add(apple);
 
         xBanner.setBannerData(demoData);
@@ -103,7 +106,6 @@ public class ZiXunFragment extends Fragment {
         super.onResume();
         xBanner.startAutoPlay();
     }
-
 
     @Override
     public void onStop() {

@@ -27,7 +27,7 @@
             app:pageChangeDuration="800"
             app:isAutoPlay="false"
             app:isHandLoop="true"
-            app:isShowTips="true"
+            app:isShowTips="false"
             app:tipTextSize="10sp"
             app:tipTextColor="#ffffff"
             app:isTipsMarquee="false"
