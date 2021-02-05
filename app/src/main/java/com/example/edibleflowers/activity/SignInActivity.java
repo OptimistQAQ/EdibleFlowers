@@ -176,7 +176,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                 eUserName.setText("");
                 break;
             case R.id.iv_clear_password:
-                //清楚密码：
+                //清除密码：
                 ePassword.setText("");
                 break;
             default:
