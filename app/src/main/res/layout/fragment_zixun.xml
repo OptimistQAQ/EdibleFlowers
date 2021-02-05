@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tl="http://schemas.android.com/apk/res-auto">
 
     <android.support.v7.widget.CardView
         android:id="@+id/zixun_cardview"
@@ -42,12 +43,36 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintVertical_weight="1"
         app:layout_constraintTop_toBottomOf="@+id/zixun_cardview"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.flyco.tablayout.SlidingTabLayout
+                android:id="@+id/zixun_sliding_tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#009688"
+                android:paddingBottom="16dp"
+                android:paddingTop="16dp"
+                tl:tl_indicator_gravity="BOTTOM"
+                tl:tl_textBold="SELECT"
+                app:tl_tab_space_equal="false" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/zixun_view_pager"
+                android:background="#545454"
+                android:layout_width="match_parent"
+                android:layout_height="640dp" />
+
+        </LinearLayout>
 
     </ScrollView>
 
