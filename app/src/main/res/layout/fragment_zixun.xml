@@ -56,6 +56,7 @@
         app:tl_divider_color="#1A000000"
         app:tl_divider_padding="16dp"
         app:tl_divider_width="1dp"
+        app:tl_indicator_color="#000000"
         app:tl_indicator_gravity="BOTTOM"
         app:tl_tab_space_equal="true"
         app:tl_textBold="SELECT"
