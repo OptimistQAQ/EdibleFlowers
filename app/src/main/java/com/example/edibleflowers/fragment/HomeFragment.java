@@ -88,6 +88,9 @@ public class HomeFragment extends Fragment {
 
     }
 
+    /**
+     * fragment 适配器
+     */
     private class MyPagerAdapter extends FragmentPagerAdapter {
         public MyPagerAdapter(FragmentManager fm) {
             super(fm);
