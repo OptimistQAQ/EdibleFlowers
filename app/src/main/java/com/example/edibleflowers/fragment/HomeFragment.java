@@ -4,30 +4,29 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.example.edibleflowers.R;
-import com.example.edibleflowers.bean.BannerInfo;
-import com.stx.xhb.xbanner.XBanner;
-import com.stx.xhb.xbanner.transformers.Transformer;
+import com.example.edibleflowers.fragment.home.HomeDailyRecommendFragment;
+import com.example.edibleflowers.fragment.home.HomeScanFragment;
+import com.flyco.tablayout.SegmentTabLayout;
+import com.flyco.tablayout.listener.OnTabSelectListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class HomeFragment extends Fragment {
 
     private View root;
-    private XBanner xBanner;
 
-    // 测试用图片 url
-    private final String baiduLogoImageUrl = "https://www.baidu.com/img/flexible/logo/pc/result@2.png";
-    private final String bingDailyImageUrl = "https://cn.bing.com/th?id=OHR.VosgesBioReserve_ZH-CN4762694302_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp";
-    private final String appleImageUrl = "https://www.apple.com.cn/home/heroes/cny-2021-film/images/cny__gaectlu0tiai_mediumtall.jpg";
+    private ArrayList<Fragment> mFragments = new ArrayList<>();
+    private ViewPager mViewPager;
+    private SegmentTabLayout mTabLayout;
+    private final String[] mTitles = {"每日推荐", "花卉识别",};
 
     @Nullable
     @Override
@@ -35,7 +34,6 @@ public class HomeFragment extends Fragment {
         root = inflater.inflate(R.layout.fragment_home, container, false);
         initView();
         initData();
-        initBanner();
         return root;
     }
 
@@ -44,60 +42,70 @@ public class HomeFragment extends Fragment {
      */
     private void initView()
     {
-        xBanner = root.findViewById(R.id.home_banner);
+        mFragments.add(new HomeDailyRecommendFragment()); // 每日推荐
+        mFragments.add(new HomeScanFragment());           // 花卉识别
 
-    }
+        mViewPager = root.findViewById(R.id.home_view_pager);
+        mViewPager.setAdapter(new MyPagerAdapter(getFragmentManager()));
 
-    /**
-     * 初始化轮播 banner
-     * https://github.com/xiaohaibin/XBanner
-     */
-    private void initBanner()
-    {
-        // 设置图片点击事件
-        xBanner.setOnItemClickListener(new XBanner.OnItemClickListener() {
+        mTabLayout = root.findViewById(R.id.home_segment_tab_layout);
+        mTabLayout.setTabData(mTitles);
+        mTabLayout.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
-            public void onItemClick(XBanner banner, Object model, View view, int position) {
-                Toast.makeText(getContext(),
-                        "点击了第" + (position + 1) + "图片  " + ((BannerInfo) model).getTitle(),
-                        Toast.LENGTH_SHORT)
-                        .show();
+            public void onTabSelect(int position) {
+                mViewPager.setCurrentItem(position);
+            }
+
+            @Override
+            public void onTabReselect(int position) {
+                mViewPager.setCurrentItem(position);
             }
         });
-        // 加载图片
-        xBanner.loadImage(new XBanner.XBannerAdapter() {
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void loadBanner(XBanner banner, Object model, View view, int position) {
-                BannerInfo bannerImage = ((BannerInfo) model);
-                String url = bannerImage.getXBannerUrl();
-                Glide.with(HomeFragment.this)
-                        .load(url)
-                        .into((ImageView) view);
+            public void onPageScrolled(int i, float v, int i1) {
+            }
+
+            @Override
+            public void onPageSelected(int i) {
+                mTabLayout.setCurrentTab(i);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
             }
         });
-        xBanner.setPageTransformer(Transformer.Alpha);
-
+        mViewPager.setCurrentItem(0);
+        mTabLayout.showDot(1); // 显示小红点
     }
+
 
     /**
      * 初始化数据
      */
     private void initData()
     {
-        // 连接服务器获取 banner 信息 下面数据用于演示
 
+    }
 
-        List<BannerInfo> demoData = new ArrayList<>();
+    private class MyPagerAdapter extends FragmentPagerAdapter {
+        public MyPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
 
-        BannerInfo baidu = new BannerInfo(baiduLogoImageUrl, "Baidu");
-        BannerInfo bing  = new BannerInfo(bingDailyImageUrl, "Bing");
-        BannerInfo apple = new BannerInfo(appleImageUrl, "Apple");
+        @Override
+        public int getCount() {
+            return mFragments.size();
+        }
 
-        demoData.add(baidu);
-        demoData.add(bing);
-        demoData.add(apple);
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mTitles[position];
+        }
 
-        xBanner.setBannerData(demoData);
-        xBanner.setAutoPlayAble(demoData.size() > 1);
+        @Override
+        public Fragment getItem(int position) {
+            return mFragments.get(position);
+        }
     }
 }

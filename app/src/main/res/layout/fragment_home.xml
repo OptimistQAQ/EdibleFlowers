@@ -1,43 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".fragment.HomeFragment">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/home_cardview"
+    <com.flyco.tablayout.SegmentTabLayout
+        android:id="@+id/home_segment_tab_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginHorizontal="8dp"
+        app:tl_indicator_anim_enable="true"
+        app:tl_indicator_bounce_enable="false"
+        app:tl_divider_color="#009688"
+        app:tl_tab_padding="24dp"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/home_view_pager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="8dp"
-        android:layout_marginHorizontal="12dp"
-        android:elevation="6dp"
-        app:cardCornerRadius="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
-        <com.stx.xhb.xbanner.XBanner
-            android:id="@+id/home_banner"
-            android:layout_width="match_parent"
-            android:layout_height="192dp"
-            android:scaleType="centerCrop"
-            app:placeholderDrawable="@drawable/ic_default_image_grey_64dp"
-            app:AutoPlayTime="3000"
-            app:pageChangeDuration="800"
-            app:isAutoPlay="false"
-            app:isHandLoop="true"
-            app:isShowTips="false"
-            app:tipTextSize="10sp"
-            app:tipTextColor="#ffffff"
-            app:isTipsMarquee="false"
-            app:pointsVisibility="true"
-            app:isShowNumberIndicator="true"
-            app:isShowIndicatorOnlyOne="false"
-            app:pointsContainerBackground="#442e2e2e"
-            app:pointsPosition="RIGHT" />
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:text="扫描识别"-->
+<!--        android:textSize="32sp"-->
+<!--        tools:ignore="HardcodedText" />-->
 
-    </android.support.v7.widget.CardView>
+<!--    <android.support.v7.widget.CardView-->
+<!--        android:id="@+id/home_cv_scan"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:elevation="6dp"-->
+<!--        app:cardCornerRadius="4dp"-->
+<!--        android:layout_marginHorizontal="24dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginBottom="24dp">-->
 
-</android.support.constraint.ConstraintLayout>
+<!--        <ImageButton-->
+<!--            android:id="@+id/home_btn_scan"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="192dp"-->
+<!--            android:background="#03A9F4"-->
+<!--            android:scaleType="fitCenter"-->
+<!--            android:src="@drawable/flower_scan"-->
+<!--            tools:ignore="ContentDescription" />-->
+
+<!--    </android.support.v7.widget.CardView>-->
+
+<!--    <android.support.constraint.Guideline-->
+<!--        android:id="@+id/home_gl_horizontal_1"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintGuide_percent="0.1" />-->
+
+<!--    <android.support.constraint.Guideline-->
+<!--        android:id="@+id/home_gl_horizontal_4"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintGuide_percent="0.4" />-->
+
+<!--    <android.support.constraint.Guideline-->
+<!--        android:id="@+id/home_gl_vertical_16"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        app:layout_constraintGuide_percent="0.16" />-->
+
+<!--    <android.support.constraint.Guideline-->
+<!--        android:id="@+id/home_gl_vertical_84"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        app:layout_constraintGuide_percent="0.84" />-->
+
+<!--    <android.support.v7.widget.CardView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="224dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:layout_marginHorizontal="16dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" >-->
+
+<!--        <ImageButton-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:scaleType="fitCenter"-->
+<!--            android:src="@drawable/scan2"/>-->
+
+<!--    </android.support.v7.widget.CardView>-->
+
+
+
+<!--        <ImageButton-->
+<!--        android:id="@+id/home_btn_scan"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/ic_scan_grey_256dp"-->
+<!--        app:layout_constraintVertical_bias="0.5"-->
+<!--        app:layout_constraintHorizontal_bias="0.5"-->
+<!--        app:layout_constraintStart_toStartOf="@id/home_gl_vertical_16"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/home_gl_vertical_84"-->
+<!--        app:layout_constraintTop_toTopOf="@id/home_gl_horizontal_1"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/home_gl_horizontal_4" />-->
+
+
+</LinearLayout>
