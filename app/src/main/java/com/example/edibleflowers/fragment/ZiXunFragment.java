@@ -40,7 +40,7 @@ public class ZiXunFragment extends Fragment {
     private final String[] mTitles = {"精选", "分类", "新闻"};
 
     // 测试用图片 url
-    private final String baiduLogoImageUrl = "https://www.baidu.com/img/flexible/logo/pc/result@2.png";
+    private final String baiduLogoImageUrl = "http://img-arch.pconline.com.cn/images/upload/upc/tx/photoblog/1103/20/c9/7059208_7059208_1300628027484.jpg";
     private final String bingDailyImageUrl = "https://cn.bing.com/th?id=OHR.VosgesBioReserve_ZH-CN4762694302_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp";
     private final String appleImageUrl = "https://www.apple.com.cn/home/heroes/cny-2021-film/images/cny__gaectlu0tiai_mediumtall.jpg";
 
@@ -57,8 +57,7 @@ public class ZiXunFragment extends Fragment {
     /**
      * 初始化控件
      */
-    private void initView()
-    {
+    private void initView() {
         xBanner = root.findViewById(R.id.zixun_banner);
 
         mFragments.add(new ZixunHighqualityFragment());    // 精选

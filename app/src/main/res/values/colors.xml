@@ -4,6 +4,12 @@
     <color name="colorPrimaryDark">@color/blue_pressed</color>
     <color name="colorAccent">#1BA5E3</color>
 
+    <color name="blue">#419DE4</color>
+    <color name="text_clo">#333</color>
+    <color name="border_clo">#ccc</color>
+    <color name="iron">#CCCCCC</color>
+    <color name="light_blue">#03a9f4</color>
+
     <color name="back">#e29645</color>
     <color name="colorAccentLight">#ef749e</color>
 
