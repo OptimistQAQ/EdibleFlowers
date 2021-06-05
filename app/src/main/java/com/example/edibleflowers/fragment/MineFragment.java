@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.edibleflowers.R;
@@ -22,9 +23,8 @@ public class MineFragment extends Fragment implements View.OnClickListener {
     private ImageButton btnSettings;
     private ImageButton btnAccountSettings;
     private Button btnRegister;
-    private Button btnMyFavourite;
-    private Button btnAbout;
-    private Button btnLogout;
+
+    private LinearLayout menuUser, menuAbout, menuSetting, menuExit;
 
     @Nullable
     @Override
@@ -48,14 +48,17 @@ public class MineFragment extends Fragment implements View.OnClickListener {
         btnSettings.setOnClickListener(this);
         btnRegister = root.findViewById(R.id.mine_register);
         btnRegister.setOnClickListener(this);
-        btnMyFavourite = root.findViewById(R.id.mine_my_favourite);
-        btnMyFavourite.setOnClickListener(this);
-        btnAbout = root.findViewById(R.id.mine_about);
-        btnAbout.setOnClickListener(this);
         btnAccountSettings = root.findViewById(R.id.mine_account_settings);
         btnAccountSettings.setOnClickListener(this);
-        btnLogout = root.findViewById(R.id.mine_logout);
-        btnLogout.setOnClickListener(this);
+        menuUser = root.findViewById(R.id.menu_user);
+        menuUser.setOnClickListener(this);
+        menuAbout = root.findViewById(R.id.menu_about);
+        menuAbout.setOnClickListener(this);
+        menuSetting = root.findViewById(R.id.menu_setting);
+        menuSetting.setOnClickListener(this);
+        menuExit = root.findViewById(R.id.menu_exit);
+        menuExit.setOnClickListener(this);
+
     }
 
     /**
@@ -69,20 +72,20 @@ public class MineFragment extends Fragment implements View.OnClickListener {
                 Toast.makeText(getActivity(), "Settings", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.mine_register:
-//                Toast.makeText(getActivity(), "Register", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Register", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(getActivity(), RegisterActivity.class));
                 break;
-            case R.id.mine_my_favourite:
-                Toast.makeText(getActivity(), "MyFavourite", Toast.LENGTH_SHORT).show();
+            case R.id.menu_user:
+                Toast.makeText(getActivity(), "个人中心", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.mine_about:
-                Toast.makeText(getActivity(), "About", Toast.LENGTH_SHORT).show();
+            case R.id.menu_about:
+                Toast.makeText(getActivity(), "关于", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.mine_account_settings:
-                Toast.makeText(getActivity(), "AccountSettings", Toast.LENGTH_SHORT).show();
+            case R.id.menu_setting:
+                Toast.makeText(getActivity(), "设置", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.mine_logout:
-                Toast.makeText(getActivity(), "Logout", Toast.LENGTH_SHORT).show();
+            case R.id.menu_exit:
+                Toast.makeText(getActivity(), "退出登录", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 Log.d("MineFragment", "OnClick Default");

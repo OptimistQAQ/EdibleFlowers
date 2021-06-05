@@ -9,6 +9,10 @@
     <color name="border_clo">#ccc</color>
     <color name="iron">#CCCCCC</color>
     <color name="light_blue">#03a9f4</color>
+    <color name="certainblue">#ff387ef5</color>
+    <color name="black">#000000</color>
+    <color name="button_normal">#858585</color>
+    <color name="button_press">#387ef5</color>
 
     <color name="back">#e29645</color>
     <color name="colorAccentLight">#ef749e</color>

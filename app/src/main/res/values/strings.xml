@@ -11,7 +11,7 @@
     <string name="setting">设置</string>
     <string name="update">检测更新</string>
     <string name="software_setting">软件设置</string>
-    <string name="exit">退出应用</string>
+    <string name="exit">退出登录</string>
     <string name="tv_account">登录账号：</string>
     <string name="tv_username">昵称</string>
     <string name="tv_password">密码</string>

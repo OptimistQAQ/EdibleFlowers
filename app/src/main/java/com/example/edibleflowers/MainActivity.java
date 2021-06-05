@@ -11,6 +11,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+/**
+ * @author 65667
+ */
 public class MainActivity extends AppCompatActivity {
 
     private long time = 0;
