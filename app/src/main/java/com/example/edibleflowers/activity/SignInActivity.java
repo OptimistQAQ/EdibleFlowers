@@ -20,8 +20,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
+import com.example.edibleflowers.CurrentUserInfo;
 import com.example.edibleflowers.MainActivity;
 import com.example.edibleflowers.R;
+import com.example.edibleflowers.bean.User;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
@@ -199,21 +201,32 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         startActivity(mainActivity);
         finish();
 
-        OkGo.<String>post("")
+        OkGo.<String>post("http://10.132.150.15:9596/login")
                 .params("name", bt_name)
                 .params("password", bt_password)
                 .tag(this)
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {
-                            Toast.makeText(SignInActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
-                            Intent mainActivity = new Intent(SignInActivity.this, MainActivity.class);
-                            startActivity(mainActivity);
-                            finish();
+                            User user =JSON.parseObject(response.body(), User.class);
+                            Log.e("user_body", response.body());
+                            if (user.getUname() != null) {
+                                CurrentUserInfo.uno = user.getUno();
+                                CurrentUserInfo.name = user.getUname();
+                                CurrentUserInfo.password = user.getUpassword();
+                                CurrentUserInfo.profilePhoto = user.getUprofilePhoto();
+                                CurrentUserInfo.like = user.getUtotalTime();
+                                CurrentUserInfo.publish = user.getUtotalDistance();
+                                CurrentUserInfo.praise = user.getUtotalLine();
+                                Toast.makeText(SignInActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
+                                Intent mainActivity = new Intent(SignInActivity.this, MainActivity.class);
+                                startActivity(mainActivity);
+                                finish();
+                            }
+                            else {
+                                Toast.makeText(SignInActivity.this, "账号或密码错误，无法登录", Toast.LENGTH_SHORT).show();
                         }
-//                        else {
-//                            Toast.makeText(SignInActivity.this, "账号或密码错误，无法登录", Toast.LENGTH_SHORT).show();
-//                        }
+                    }
                 });
     }
 }
