@@ -13,6 +13,7 @@
     <color name="black">#000000</color>
     <color name="button_normal">#858585</color>
     <color name="button_press">#387ef5</color>
+    <color name="main_textTitleColor">#939090</color>
 
     <color name="back">#e29645</color>
     <color name="colorAccentLight">#ef749e</color>

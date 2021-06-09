@@ -1,7 +1,6 @@
 package com.example.edibleflowers.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,7 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
-import com.example.edibleflowers.CurrentUserInfo;
+import com.example.edibleflowers.utils.ActivityCollectorUtil;
+import com.example.edibleflowers.utils.CurrentUserInfo;
 import com.example.edibleflowers.MainActivity;
 import com.example.edibleflowers.R;
 import com.example.edibleflowers.bean.User;
@@ -31,6 +31,9 @@ import com.lzy.okgo.model.Response;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author 65667
+ */
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText eUserName;
@@ -52,6 +55,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
+        ActivityCollectorUtil.addActivity(this);
 
         initView();
         initDropDownGroup();
@@ -196,11 +200,6 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         String bt_name = eUserName.getText().toString();
         String bt_password = ePassword.getText().toString();
 
-        Toast.makeText(SignInActivity.this, "登陆成功", Toast.LENGTH_SHORT).show();
-        Intent mainActivity = new Intent(SignInActivity.this, MainActivity.class);
-        startActivity(mainActivity);
-        finish();
-
         OkGo.<String>post("http://10.132.150.15:9596/login")
                 .params("name", bt_name)
                 .params("password", bt_password)
@@ -213,6 +212,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                             if (user.getUname() != null) {
                                 CurrentUserInfo.uno = user.getUno();
                                 CurrentUserInfo.name = user.getUname();
+                                CurrentUserInfo.nick_name = user.getUnickName();
                                 CurrentUserInfo.password = user.getUpassword();
                                 CurrentUserInfo.profilePhoto = user.getUprofilePhoto();
                                 CurrentUserInfo.like = user.getUtotalTime();

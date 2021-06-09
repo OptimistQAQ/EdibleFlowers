@@ -16,4 +16,8 @@
     <string name="tv_username">昵称</string>
     <string name="tv_password">密码</string>
 
+    <string name="about_text">当前版本： 1.0.0</string>
+    <string name="copyright">Copyright  @ Optimist 2021</string>
+
+
 </resources>

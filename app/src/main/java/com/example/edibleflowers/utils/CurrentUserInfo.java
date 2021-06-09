@@ -1,4 +1,4 @@
-package com.example.edibleflowers;
+package com.example.edibleflowers.utils;
 
 import com.example.edibleflowers.bean.User;
 
@@ -9,6 +9,7 @@ public class CurrentUserInfo {
     public static User user = null;
     public static Integer uno = 0;  //当前用户id
     public static String name = "";
+    public static String nick_name = ""; //昵称
     public static String password = "";
     public static String profilePhoto = "";//头像url
 

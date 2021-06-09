@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.edibleflowers.R;
+import com.example.edibleflowers.utils.ActivityCollectorUtil;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
@@ -18,6 +19,9 @@ import com.lzy.okgo.model.Response;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author 65667
+ */
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText mUserName;
@@ -29,6 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        ActivityCollectorUtil.addActivity(this);
 
         init();
 
