@@ -175,6 +175,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.btn_skip:
                 //游客进入
                 finish();
+                CurrentUserInfo.nick_name = "游客";
+                CurrentUserInfo.profilePhoto = "http://ishero.net/share/06.png";
                 startActivity(new Intent(SignInActivity.this, MainActivity.class));
                 break;
             case R.id.iv_clear_account:
