@@ -92,13 +92,14 @@ public class HomeDailyRecommendFragment extends Fragment {
         List<String> img = new ArrayList<>();
         List<String> title = new ArrayList<>();
         List<String> author = new ArrayList<>();
+        List<String> main = new ArrayList<>();
 
         recyclerView = root.findViewById(R.id.ev_recommend);
         adapter = new MultiTypeAdapter();
         adapter.register(HomeDailyRecommendItem.class, new HomeDailyRecommendBinder());
         recyclerView.setAdapter(adapter);
 
-        OkGo.<String>post("http://10.132.150.15:9596/showNews")
+        OkGo.<String>post("http://10.132.41.48:9596/showNews")
                 .tag(this)
                 .execute(new StringCallback() {
                     @Override
@@ -112,12 +113,14 @@ public class HomeDailyRecommendFragment extends Fragment {
                             img.add(jsonObject.getString("nimg"));
                             author.add(jsonObject.getString("nathor"));
                             title.add(jsonObject.getString("ntitle"));
+                            main.add(jsonObject.getString("ndetail"));
                         }
                         for (int i=0; i<img.size(); i++) {
                             HomeDailyRecommendItem homeDailyRecommendItem = new HomeDailyRecommendItem();
                             homeDailyRecommendItem.setImg(img.get(i));
                             homeDailyRecommendItem.setTitle(title.get(i));
                             homeDailyRecommendItem.setAuthor(author.get(i));
+                            homeDailyRecommendItem.setMain(main.get(i));
                             mItems.add(homeDailyRecommendItem);
                         }
                         adapter.setItems(mItems);

@@ -1,5 +1,6 @@
 package com.example.edibleflowers.binder;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.edibleflowers.R;
+import com.example.edibleflowers.activity.DetailActivity;
 import com.example.edibleflowers.item.HomeDailyRecommendItem;
 
 import me.drakeet.multitype.ItemViewBinder;
@@ -46,6 +48,18 @@ public class HomeDailyRecommendBinder extends ItemViewBinder<HomeDailyRecommendI
         Glide.with(root.getContext()).load(item.getImg()).into(recommendImg);
         recommendAuthor.setText(item.getAuthor());
         recommendTitle.setText(item.getTitle());
+
+        root.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(root.getContext(), DetailActivity.class);
+                intent.putExtra("img", item.getImg());
+                intent.putExtra("title", item.getTitle());
+                intent.putExtra("author", item.getAuthor());
+                intent.putExtra("main", item.getMain());
+                root.getContext().startActivity(intent);
+            }
+        });
     }
 
 

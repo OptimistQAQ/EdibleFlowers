@@ -202,7 +202,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         String bt_name = eUserName.getText().toString();
         String bt_password = ePassword.getText().toString();
 
-        OkGo.<String>post("http://10.132.150.15:9596/login")
+        OkGo.<String>post("http://10.132.41.48:9596/login")
                 .params("name", bt_name)
                 .params("password", bt_password)
                 .tag(this)

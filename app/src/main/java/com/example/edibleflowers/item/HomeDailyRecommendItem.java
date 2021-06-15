@@ -8,6 +8,15 @@ public class HomeDailyRecommendItem {
     private String img;
     private String title;
     private String author;
+    private String main;
+
+    public String getMain() {
+        return main;
+    }
+
+    public void setMain(String main) {
+        this.main = main;
+    }
 
     public String getImg() {
         return img;

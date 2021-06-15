@@ -11,6 +11,15 @@ public class ZixunNewsItem {
     private String title;
     private String author;
     private String time;
+    private String main;
+
+    public String getMain() {
+        return main;
+    }
+
+    public void setMain(String main) {
+        this.main = main;
+    }
 
     public String getImg_news() {
         return img_news;

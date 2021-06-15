@@ -74,7 +74,7 @@ public class PersonalActivity extends AppCompatActivity {
                     //从编辑变成完成
                     final String name = mUserNameText.getText().toString();
                     final String password = mPasswordText.getText().toString();
-                    OkGo.<String>post("http://10.132.150.15:9596/updateInfo")
+                    OkGo.<String>post("http://10.132.41.48:9596/updateInfo")
                             .params("uno", CurrentUserInfo.uno)
                             .params("nick_name", name)
                             .params("password", password)

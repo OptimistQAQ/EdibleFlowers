@@ -1,5 +1,6 @@
 package com.example.edibleflowers.binder;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.edibleflowers.R;
+import com.example.edibleflowers.activity.DetailActivity;
 import com.example.edibleflowers.item.ZixunNewsItem;
 
 import me.drakeet.multitype.ItemViewBinder;
@@ -41,6 +43,18 @@ public class ZixunNewsBinder extends ItemViewBinder<ZixunNewsItem, ZixunNewsBind
         newsTitle.setText(item.getTitle());
         newsAuthor.setText(item.getAuthor());
         newsTime.setText(item.getTime());
+
+        root.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(root.getContext(), DetailActivity.class);
+                intent.putExtra("img", item.getImg_news());
+                intent.putExtra("title", item.getTitle());
+                intent.putExtra("author", item.getAuthor());
+                intent.putExtra("main", item.getMain());
+                root.getContext().startActivity(intent);
+            }
+        });
     }
 
     private void initView() {
