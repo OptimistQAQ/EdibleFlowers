@@ -3,12 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.zixun.ZixunClassificationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/ev_classification"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_marginTop="10dp"
+
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager">
+
+    </android.support.v7.widget.RecyclerView>
 
 </FrameLayout>

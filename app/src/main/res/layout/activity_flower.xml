@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.FlowerActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/flower_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="这是名字"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textColor="#000000"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="介绍"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/flower_introduce"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="这是内容"
+            android:textSize="20sp"
+
+            android:textColor="@color/black_semi_transparent"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="价值"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/flower_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="这是内容"
+            android:textSize="20sp"
+            android:textColor="@color/black_semi_transparent"
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="可食部位"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/flower_part"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="这是可食部位"
+            android:textSize="20sp"
+            android:textColor="@color/black_semi_transparent" />
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>

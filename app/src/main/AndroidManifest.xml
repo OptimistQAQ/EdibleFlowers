@@ -35,7 +35,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.DetailActivity"></activity>
+        <activity android:name=".activity.FlowerActivity"></activity>
+        <activity android:name=".activity.DetailActivity" />
         <activity android:name=".activity.PersonalActivity" />
         <activity android:name=".activity.AboutUsActivity" />
 
