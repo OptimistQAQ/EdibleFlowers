@@ -15,6 +15,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.edibleflowers.R;
 import com.example.edibleflowers.binder.ZixunClassificationBinder;
 import com.example.edibleflowers.item.ZixunClassificationItem;
+import com.example.edibleflowers.utils.Url;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
@@ -104,7 +105,7 @@ public class ZixunClassificationFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         //[{"imessage":"青春时期的回忆、惹人怜爱、轻愁。","iname":"丁香花","ino":1,"iphoto":"https://bkimg.cdn.bcebos.com/pic/5366d0160924ab18972b8fae5eb0f1cd7b899e519d5a?x-bce-process=image/resize,m_fill,w_360,h_280,align_50,limit_0/format,f_auto"},{"imessage":"白日梦，思慕，想念我","iname":"三色堇","ino":2,"iphoto":"https://bkimg.cdn.bcebos.com/pic/b8014a90f603738d820ee227b31bb051f819ec6b?x-bce-process=image/resize,m_lfit,w_440,limit_1/format,f_auto"},{"imessage":"谦逊质朴，无私奉献。","iname":"诸葛菜","ino":3,"iphoto":"http://img-arch.pconline.com.cn/images/upload/upc/tx/photoblog/1103/20/c9/7059208_7059208_1300628027484.jpg"}]
-        OkGo.<String>post("http://10.132.41.48:9596/showClassification")
+        OkGo.<String>post(Url.localUrl + "/showClassification")
                 .tag(this)
                 .execute(new StringCallback() {
                     @Override

@@ -157,7 +157,7 @@ public class HomeScanFragment extends Fragment {
                 Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
                 if (bitmap != null) {
                     bitmap = ImageUtils.getRotatedBitmap(bitmap, mOrientation);
-                    String path = Environment.getExternalStorageDirectory() + "/DCIM/Camera/"
+                    String path = Environment.getExternalStorageDirectory().toString() + "/DCIM/Camera/"
                             + System.currentTimeMillis() + ".jpg";
 
                     try {

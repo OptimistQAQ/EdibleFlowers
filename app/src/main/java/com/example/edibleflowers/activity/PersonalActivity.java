@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSONObject;
 import com.example.edibleflowers.R;
 import com.example.edibleflowers.utils.CurrentUserInfo;
+import com.example.edibleflowers.utils.Url;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
@@ -74,7 +75,7 @@ public class PersonalActivity extends AppCompatActivity {
                     //从编辑变成完成
                     final String name = mUserNameText.getText().toString();
                     final String password = mPasswordText.getText().toString();
-                    OkGo.<String>post("http://10.132.41.48:9596/updateInfo")
+                    OkGo.<String>post(Url.localUrl + "/updateInfo")
                             .params("uno", CurrentUserInfo.uno)
                             .params("nick_name", name)
                             .params("password", password)

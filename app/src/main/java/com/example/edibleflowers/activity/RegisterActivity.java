@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.edibleflowers.R;
 import com.example.edibleflowers.utils.ActivityCollectorUtil;
+import com.example.edibleflowers.utils.Url;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
@@ -85,7 +86,7 @@ public class RegisterActivity extends AppCompatActivity {
             Map<String, String> param = new HashMap<>();
             param.put("name", mUserName.getText().toString());
             param.put("password", mPassword.getText().toString());
-            OkGo.<String>post("http://10.132.41.48:9596/register")
+            OkGo.<String>post(Url.localUrl + "/register")
                     .params("name", mUserName.getText().toString())
                     .params("password", mPassword.getText().toString())
                     .execute(new StringCallback() {

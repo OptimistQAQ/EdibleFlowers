@@ -1,0 +1,11 @@
+package com.example.edibleflowers.utils;
+
+/**
+ * @author 65667
+ */
+public class Url {
+
+    public static String aliyunUrl = "http://123.56.86.163:9596";
+    public static String localUrl = "http://192.168.43.125:9596";
+
+}

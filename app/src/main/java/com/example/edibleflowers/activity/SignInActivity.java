@@ -24,6 +24,7 @@ import com.example.edibleflowers.utils.CurrentUserInfo;
 import com.example.edibleflowers.MainActivity;
 import com.example.edibleflowers.R;
 import com.example.edibleflowers.bean.User;
+import com.example.edibleflowers.utils.Url;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
@@ -202,7 +203,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         String bt_name = eUserName.getText().toString();
         String bt_password = ePassword.getText().toString();
 
-        OkGo.<String>post("http://10.132.41.48:9596/login")
+        OkGo.<String>post(Url.localUrl + "/login")
                 .params("name", bt_name)
                 .params("password", bt_password)
                 .tag(this)

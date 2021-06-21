@@ -14,6 +14,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.edibleflowers.R;
 import com.example.edibleflowers.binder.HomeDailyRecommendBinder;
 import com.example.edibleflowers.item.HomeDailyRecommendItem;
+import com.example.edibleflowers.utils.Url;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
@@ -99,7 +100,7 @@ public class HomeDailyRecommendFragment extends Fragment {
         adapter.register(HomeDailyRecommendItem.class, new HomeDailyRecommendBinder());
         recyclerView.setAdapter(adapter);
 
-        OkGo.<String>post("http://10.132.41.48:9596/showNews")
+        OkGo.<String>post(Url.localUrl + "/showNews")
                 .tag(this)
                 .execute(new StringCallback() {
                     @Override
