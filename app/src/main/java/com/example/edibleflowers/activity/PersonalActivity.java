@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
+import com.bumptech.glide.Glide;
 import com.example.edibleflowers.R;
 import com.example.edibleflowers.utils.CurrentUserInfo;
 import com.example.edibleflowers.utils.Url;
@@ -19,6 +20,7 @@ import com.lzy.okgo.model.Response;
 
 import java.io.IOException;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -29,7 +31,7 @@ import okhttp3.RequestBody;
  */
 public class PersonalActivity extends AppCompatActivity {
 
-    private TextView mMenu;//Toolbar上的菜单
+    private TextView mMenu, tvUsername;//Toolbar上的菜单
     private View mMenuLayout, mWarnLayout;
 
     /**
@@ -41,6 +43,8 @@ public class PersonalActivity extends AppCompatActivity {
      * 密码和昵称
      */
     private EditText mUserNameText, mPasswordText;
+
+    private CircleImageView catImg;
 
 
     private boolean isEdit = false;
@@ -55,10 +59,15 @@ public class PersonalActivity extends AppCompatActivity {
         mAccount = findViewById(R.id.account);
         mUserNameText = findViewById(R.id.username);
         mPasswordText = findViewById(R.id.password);
+        catImg = findViewById(R.id.cat_avatar);
 
         mAccount.setText(CurrentUserInfo.name);
         mUserNameText.setText(CurrentUserInfo.nick_name);
         mPasswordText.setText(CurrentUserInfo.password);
+        Glide.with(this).load(CurrentUserInfo.profilePhoto).into(catImg);
+
+        tvUsername = findViewById(R.id.tv_username);
+        tvUsername.setText(CurrentUserInfo.nick_name);
 
 
         mMenu = findViewById(R.id.tv_edit);
@@ -75,7 +84,7 @@ public class PersonalActivity extends AppCompatActivity {
                     //从编辑变成完成
                     final String name = mUserNameText.getText().toString();
                     final String password = mPasswordText.getText().toString();
-                    OkGo.<String>post(Url.localUrl + "/updateInfo")
+                    OkGo.<String>post(Url.aliyunUrl + "/updateInfo")
                             .params("uno", CurrentUserInfo.uno)
                             .params("nick_name", name)
                             .params("password", password)

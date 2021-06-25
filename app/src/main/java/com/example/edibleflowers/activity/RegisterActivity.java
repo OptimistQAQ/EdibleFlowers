@@ -86,7 +86,7 @@ public class RegisterActivity extends AppCompatActivity {
             Map<String, String> param = new HashMap<>();
             param.put("name", mUserName.getText().toString());
             param.put("password", mPassword.getText().toString());
-            OkGo.<String>post(Url.localUrl + "/register")
+            OkGo.<String>post(Url.aliyunUrl + "/register")
                     .params("name", mUserName.getText().toString())
                     .params("password", mPassword.getText().toString())
                     .execute(new StringCallback() {

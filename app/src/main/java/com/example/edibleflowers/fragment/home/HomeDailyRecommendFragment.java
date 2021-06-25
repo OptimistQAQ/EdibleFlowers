@@ -100,7 +100,7 @@ public class HomeDailyRecommendFragment extends Fragment {
         adapter.register(HomeDailyRecommendItem.class, new HomeDailyRecommendBinder());
         recyclerView.setAdapter(adapter);
 
-        OkGo.<String>post(Url.localUrl + "/showNews")
+        OkGo.<String>post(Url.aliyunUrl + "/showNews")
                 .tag(this)
                 .execute(new StringCallback() {
                     @Override

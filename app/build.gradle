@@ -11,6 +11,13 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                // 此处指定生成的apk文件名
+                outputFileName = "Six.apk"
+            }
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -45,6 +52,7 @@ dependencies {
     implementation 'com.shizhefei:CoolRefreshView:1.0.4'
     //底部弹出选项栏
     implementation 'com.cocosw:bottomsheet:1.4.0@aar'
+    implementation files('libs\\open_sdk_r6140_lite.jar')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

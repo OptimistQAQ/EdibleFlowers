@@ -11,7 +11,7 @@ public class CurrentUserInfo {
     public static String name = "";
     public static String nick_name = ""; //昵称
     public static String password = "";
-    public static String profilePhoto = "";//头像url
+    public static String profilePhoto = "http://ishero.net/share/06.png";//头像url
 
     public static Integer like = 10;   //已喜欢
     public static Integer publish = 10; //已发表

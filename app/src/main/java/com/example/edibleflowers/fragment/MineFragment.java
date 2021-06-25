@@ -85,6 +85,12 @@ public class MineFragment extends Fragment implements View.OnClickListener {
         tv_count = root.findViewById(R.id.tv_count);
         tv_count.setText(String.valueOf(CurrentUserInfo.praise + "篇"));
 
+        if (!userName.getText().toString().equals("游客")) {
+            btnRegister.setText("已登录");
+        } else {
+            btnRegister.setText("立即注册");
+        }
+
 
     }
 
@@ -99,8 +105,10 @@ public class MineFragment extends Fragment implements View.OnClickListener {
                 Toast.makeText(getActivity(), "Settings", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.mine_register:
-                Toast.makeText(getActivity(), "Register", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getActivity(), RegisterActivity.class));
+                if (btnRegister.getText().toString().equals("立即注册")) {
+                    Toast.makeText(getActivity(), "Register", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getActivity(), RegisterActivity.class));
+                }
                 break;
             case R.id.menu_user:
                 Intent userIntent = new Intent(root.getContext(), PersonalActivity.class);

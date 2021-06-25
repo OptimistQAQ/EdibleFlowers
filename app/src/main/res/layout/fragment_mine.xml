@@ -137,6 +137,7 @@
                     android:layout_below="@+id/tv_time_long"
                     android:layout_centerHorizontal="true"
                     android:text="已喜欢"
+                    android:textColor="#000000"
                     android:textSize="15sp" />
 
             </RelativeLayout>
@@ -162,6 +163,7 @@
                     android:layout_below="@id/tv_dist"
                     android:layout_centerHorizontal="true"
                     android:text="已发表"
+                    android:textColor="#000000"
                     android:textSize="15sp" />
             </RelativeLayout>
 
@@ -186,6 +188,7 @@
                     android:layout_below="@id/tv_count"
                     android:layout_centerHorizontal="true"
                     android:text="被赞"
+                    android:textColor="#000000"
                     android:textSize="15sp" />
             </RelativeLayout>
 
