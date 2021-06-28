@@ -97,7 +97,12 @@ public class HomeScanFragment extends Fragment {
         btTake.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                takePicture();
+                try {
+                    takePicture();
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
