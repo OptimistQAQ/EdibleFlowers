@@ -314,7 +314,16 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                                 finish();
                             }
                             else {
-                                Toast.makeText(SignInActivity.this, "账号或密码错误，无法登录", Toast.LENGTH_SHORT).show();
+                                String dsc = "";
+                                response.toString();
+                                com.alibaba.fastjson.JSONObject jsonObject = JSON.parseObject(response.body());
+                                dsc = jsonObject.getString("dsc");
+                                Log.e("dsc", dsc);
+                                if ("the user does not exist".equals(dsc)) {
+                                    Toast.makeText(SignInActivity.this, "用户名不存在", Toast.LENGTH_SHORT).show();
+                                }else {
+                                    Toast.makeText(SignInActivity.this, "密码错误", Toast.LENGTH_SHORT).show();
+                                }
                         }
                     }
                 });
