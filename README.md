@@ -7,7 +7,7 @@
 
 ​                食用花卉在开发中还存在很多盲点，亟待解决: 一是食用花卉的种植面积不大，食用花卉数量稀少，目前仍属高档食品之列，在各类市场上价格较高，大多销往高档酒店，价格不容易被普通老百姓接受;二是缺乏对食用花卉营养成分的量化分析。很多人都吃过蒲公英等野生植物，往往都是来自从过去年代走过的老一辈人的传承。但到底哪些花卉可以吃?可以吃花卉具体哪个部位?具体到每个可以吃的花卉中含有哪些微量元素?都有哪些保健功能?大部分人都说不清楚。三是食用花卉的保鲜问题没有得到很好解决。因此本APP（六寸光阴）应运而生，旨在为广大群众提供正确的花卉认识。
 
-**这里是软件后端链接**     **[食用花卉后端]( [OptimistQAQ/SixInchLightServer: 六寸光阴服务器端 (github.com)](https://github.com/OptimistQAQ/SixInchLightServer) )**
+这里是软件后端链接：     **[食用花卉后端]( [OptimistQAQ/SixInchLightServer: 六寸光阴服务器端 (github.com)](https://github.com/OptimistQAQ/SixInchLightServer) )**
 
 
 
